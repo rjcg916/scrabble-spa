@@ -1,26 +1,13 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {Rack} from './Rack';
+import {Board} from './Board';
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Rack  tiles={[{letter: "A", value: 1}, {letter: "B", value: 1}, {letter:"C", value: 3}]} />
+      <Board  colNames={["A", "B"]} squares={[["A", "B"],["", "C"]]}  />
     </div>
-  );
+  )
 }
 
-export default App;
