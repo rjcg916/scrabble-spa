@@ -36,7 +36,6 @@ export class Rack extends Component {
     render() {
         return (
             <div>
-                <div>This is a rack</div>
                 <div>Current selection {this.state.selectedSlot.letter} {this.state.selectedSlot.loc} </div>
                 <table class="table table-sm table-bordered mt-1 text-dark">
                     {fillSlots(this.props.tiles, this.setSelectedSlot )}
