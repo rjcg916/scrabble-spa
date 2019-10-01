@@ -78,7 +78,8 @@ export class Board extends Component {
             selectedSquare: { type: 0, letter: "", row: -1, col: -1 },
             board: []
         }
-        this.datasource = new RestDataSource("http://localhost:3500/api/board");
+        //this.datasource = new RestDataSource("http://localhost:3500/api/board");
+           this.datasource = new RestDataSource("https://localhost:44361/api/Games/1/Board/Squares");
     }
 
     setSelectedSquare = (event, type, letter, row, col) => {
