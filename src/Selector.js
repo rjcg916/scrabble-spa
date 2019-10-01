@@ -10,12 +10,7 @@ export class Selector extends Component {
         { letter: "B", value: 1 },
         { letter: "C", value: 3 }]} />
 
-    renderBoard = () => <Board colNames={["A", "B"]} squares={[
-        [{ type: 1, tile: { letter: "A", value: 1 } },
-         { type: 1, tile: { letter: "B", value: 1 } }],
-        [{ type: 1, tile: null },
-         { type: 1, tile: { letter: "C", value: 2 } }]
-    ]} />
+    renderBoard = () => <Board />
 
     render() {
         return <Router>
