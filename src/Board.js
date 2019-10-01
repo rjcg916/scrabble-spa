@@ -2,19 +2,6 @@ import React, { Component } from "react";
 import { Square } from "./Square";
 import { RestDataSource } from './webservices/RestDataSource';
 
-/* function compareEntries(a, b) {
-    const entryA = a.i;
-    const entryB = b.i;
-
-    let comparison = 0;
-    if (entryA > entryB) {
-        comparison = 1;
-    } else if (entryA < entryB) {
-        comparison = -1;
-    }
-    return comparison;
-} */
-
 
 function compareEntries(a, b) {
     const entryArow = a.row;
@@ -82,50 +69,6 @@ function displayBoard(board, setSelectedSquare) {
 
 }
 
-/* function displayBoard(board, setSelectedSquare) {
-    let rows = [];
-
-    // handle initial, empty board
-    if (board.length === 0) {
-        rows.push(<tr></tr>);
-        return rows;
-    }
-
-    // sort rows 
-    let boardRows = [...board].sort(compareEntries);
-
-    // use first row col names as column labels
-
-    let colLabels = boardRows[0].squares.map((col) => <th>{col.colName}</th>);
-
-
-    rows.push(<tr><th></th> {colLabels}<th></th></tr>);
-
-    for (let r = 0; r < boardRows.length; r++) {
-
-        let row = [];
-        let rowLabel = boardRows[r].rowName;
-
-        // row label on left
-        row.push(<th>{rowLabel}</th>);
-
-        // sort columns
-        let rowCols = [...boardRows[r].squares].sort(compareEntries);
-
-        for (let c = 0; c < rowCols.length; c++) {
-            row.push(<Square setSelectedSquare={setSelectedSquare} tile={rowCols[c].tile} type={rowCols[c].type} r={rowLabel} c={rowCols[c].colName} />);
-        }
-
-        // row label on right
-        row.push(<th>{rowLabel}</th>);
-
-        rows.push(<tr>{row}</tr>);
-    }
-
-    rows.push(<tr><th></th> {colLabels}<th></th></tr>);
-    return rows;
-}
- */
 
 export class Board extends Component {
 
@@ -134,40 +77,6 @@ export class Board extends Component {
         this.state = {
             selectedSquare: { type: 0, letter: "", row: -1, col: -1 },
             board: []
-           /*  board: [
-                {row: 0, rowName: "1", col: 0, colName: "A", 
-                  square : {squareType: 4,
-                            isFinal: false,
-                            tile: {letter: "A"},
-                            isOccupied: false,
-                            letterMultiplier: 1,
-                            wordMultiplier: 3}
-                },
-                {row: 0, rowName: "1", col: 1, colName: "B", 
-                square : {squareType: 4,
-                          isFinal: false,
-                          tile: null,
-                          isOccupied: false,
-                          letterMultiplier: 1,
-                          wordMultiplier: 3}
-              } ,       
-              {row: 1, rowName: "2", col: 0, colName: "A", 
-              square : {squareType: 4,
-                        isFinal: false,
-                        tile: null,
-                        isOccupied: false,
-                        letterMultiplier: 1,
-                        wordMultiplier: 3}
-            },       
-            {row: 1, rowName: "2", col: 1, colName: "B", 
-            square : {squareType: 4,
-                      isFinal: false,
-                      tile: null,
-                      isOccupied: false,
-                      letterMultiplier: 1,
-                      wordMultiplier: 3}
-              }
-            ]         */       
         }
         this.datasource = new RestDataSource("http://localhost:3500/api/board");
     }
