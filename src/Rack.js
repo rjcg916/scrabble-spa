@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Slot } from "./Slot";
+import PropTypes from "prop-types";
 
 
 function fillSlots(tiles, setSelectedSlot) {
@@ -43,4 +44,10 @@ export class Rack extends Component {
             </div>
         )
     }
+
+    static propTypes = {
+        tiles : PropTypes.array,
+        setSelectedSlot : PropTypes.func
+    }
 }
+

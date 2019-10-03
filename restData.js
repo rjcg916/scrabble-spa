@@ -21,7 +21,7 @@ module.exports = function () {
                       letterMultiplier: 1,
                       wordMultiplier: 3}
           } ,       
-          {row: 1, rowName: "2", col: 0, colName: "A", 
+        {row: 1, rowName: "2", col: 0, colName: "A", 
           square : {squareType: 4,
                     isFinal: false,
                     tile: null,

@@ -3,6 +3,6 @@ import { Selector } from './Selector';
 
 export default class App extends Component {
   render() {
-    return <Selector>      </Selector>
+    return <Selector></Selector>
   }
 }
