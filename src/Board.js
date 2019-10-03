@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Square } from "./Square";
 import { RestDataSource } from './webservices/RestDataSource';
+import PropTypes from "prop-types";
 
 
 function compareEntries(a, b) {
@@ -79,7 +80,7 @@ export class Board extends Component {
             board: []
         }
         //this.datasource = new RestDataSource("http://localhost:3500/api/board");
-           this.datasource = new RestDataSource("https://localhost:44361/api/Games/1/Board/Squares");
+           this.datasource = new RestDataSource( `${props.scrabbleAPIUrl}/Games/${props.game}/Board/Squares `);
     }
 
     setSelectedSquare = (event, type, letter, row, col) => {
@@ -96,5 +97,13 @@ export class Board extends Component {
     }
     componentDidMount() {
         this.datasource.GetData(data => this.setState({ board: data }));
+    }
+
+    static defaultProps = {
+        scrabbleAPIUrl : "https://localhost:44361/api"
+    }
+    static propTypes = {
+        scrabbleAPIUrl : PropTypes.string,
+        game : PropTypes.number 
     }
 }

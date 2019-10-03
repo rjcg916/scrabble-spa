@@ -5,12 +5,12 @@ import { Rack } from "./Rack";
 
 export class Selector extends Component {
 
-    renderRack = () => <Rack tiles={[
+    renderRack = (game, player) => <Rack game={game} player={player} tiles={[
         { letter: "A", value: 1 },
         { letter: "B", value: 1 },
         { letter: "C", value: 3 }]} />
 
-    renderBoard = () => <Board />
+    renderBoard = (game) => <Board game={game} />
 
     render() {
         return <Router>
@@ -25,8 +25,8 @@ export class Selector extends Component {
                     </div>
                     <div className="col">
                         <Switch>
-                            <Route path="/board" render={() => this.renderBoard()} />
-                            <Route path="/rack" render={() => this.renderRack()} />
+                            <Route path="/board" render={() => this.renderBoard(1)} />
+                            <Route path="/rack" render={() => this.renderRack(1, 1)} />
                             <Redirect to="/board" />
                         </Switch>
                     </div>
